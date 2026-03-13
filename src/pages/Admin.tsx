@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import { extractTextFromFile, parseQuestionsFromText } from '../utils/fileParser';
 import { motion } from 'motion/react';
 import { exportExamToHTML } from '../utils/exportExam';
+import MathText from '../components/MathText';
 
 export default function Admin() {
   const { subjects, questions, addSubject, addQuestion, deleteQuestion, updateQuestion } = useStore();
@@ -343,7 +344,7 @@ export default function Admin() {
                       <div className="flex justify-between items-start gap-4">
                         <div className="flex-1">
                           <div className="flex items-center gap-2 mb-2">
-                            <h4 className="font-bold text-slate-800">{q.content}</h4>
+                            <MathText className="font-bold text-slate-800">{q.content}</MathText>
                             <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${q.difficulty === 'easy' ? 'bg-emerald-100 text-emerald-700' :
                               q.difficulty === 'hard' ? 'bg-rose-100 text-rose-700' :
                                 'bg-amber-100 text-amber-700'
@@ -352,7 +353,7 @@ export default function Admin() {
                           <div className="grid grid-cols-2 gap-2 text-sm">
                             {q.options.map((opt, i) => (
                               <div key={i} className={`px-3 py-1.5 rounded-lg ${i === q.correctAnswer ? 'bg-emerald-100 text-emerald-700 font-medium' : 'bg-slate-100 text-slate-600'}`}>
-                                {String.fromCharCode(65 + i)}. {opt}
+                                <MathText>{`${String.fromCharCode(65 + i)}. ${opt}`}</MathText>
                               </div>
                             ))}
                           </div>
