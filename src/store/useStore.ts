@@ -44,9 +44,11 @@ export interface AppState {
     autoSave: boolean;
     apiKey: string;
     model: string;
+    boardSize: 4 | 5 | 6;
   };
   setApiKey: (key: string) => void;
   setModel: (model: string) => void;
+  setBoardSize: (size: 4 | 5 | 6) => void;
   addSubject: (subject: Subject) => void;
   deleteSubject: (id: string) => void;
   addQuestion: (question: Question) => void;
@@ -144,9 +146,11 @@ export const useStore = create<AppState>()(
         autoSave: true,
         apiKey: '',
         model: 'gemini-2.5-flash',
+        boardSize: 4,
       },
       setApiKey: (key) => set((state) => ({ settings: { ...state.settings, apiKey: key } })),
       setModel: (model) => set((state) => ({ settings: { ...state.settings, model } })),
+      setBoardSize: (size) => set((state) => ({ settings: { ...state.settings, boardSize: size } })),
       addSubject: (subject) => set((state) => ({ subjects: [...state.subjects, subject] })),
       deleteSubject: (id) => set((state) => ({
         subjects: state.subjects.filter((s) => s.id !== id),
