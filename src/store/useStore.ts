@@ -62,7 +62,7 @@ export interface AppState {
 const initialDemoSubjects: Subject[] = [
   { id: 'sub-1', name: 'Toán Học', icon: 'calculator', questionsCount: 5 },
   { id: 'sub-2', name: 'Lịch Sử', icon: 'book', questionsCount: 5 },
-  { id: 'sub-3', name: 'Khoa Học', icon: 'flask-conical', questionsCount: 5 },
+  { id: 'sub-3', name: 'Tin Học', icon: 'flask-conical', questionsCount: 5 },
 ];
 
 const initialDemoQuestions: Question[] = [
